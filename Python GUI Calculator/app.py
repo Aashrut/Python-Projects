@@ -1,3 +1,5 @@
+# If you have python 3 already installed on your computer then you can directly run this file. I hope you enjoyed!
+
 # Import modules
 import tkinter as tk
 import math
