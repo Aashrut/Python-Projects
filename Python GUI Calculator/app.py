@@ -15,7 +15,7 @@ window.geometry("569x650")
 window.title("Python GUI Calculator")
 
 # Add Icon
-icon = PhotoImage(file="./calculator.png")
+icon = PhotoImage(file = "./calculator.png")
 window.iconphoto(False, icon)
 
 # Give some greeting and Note
@@ -27,6 +27,7 @@ scrollbar.pack(side = RIGHT, fill = Y)
 
 # some required variable & widget
 expression = ""
+last = ""
 history = Text(window, wrap = None, yscrollcommand = scrollbar.set)
 
 # Configure the scrollbar
@@ -36,9 +37,13 @@ scrollbar.config(command=history.yview)
 # The followind function will handle any input from user
 def butttonClicked(item):
     global expression
+    global last
+    if last == "":
+        last = str(0)
     if item == "math.pow(":
-        expression = str(item) + expression[-1] + ', '
+        expression = expression.replace(last, "") + str(item) + last + ', '
     else:
+        last = str(item)
         expression = expression + str(item)
     inputText.set(expression)
 
