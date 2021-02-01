@@ -70,7 +70,7 @@ inputFrame = Frame(window, width = 312, height = 50, bd = 0, highlightbackground
 inputFrame.pack(side = TOP)
 
 # taking input from user
-inputField = Entry(inputFrame, font = ('Roboto', 18, 'bold'), textvariable = inputText, width = 32, bg = "#fff", bd = 0, justify = RIGHT)
+inputField = Entry(inputFrame, font = ('Roboto', 18, 'bold'), textvariable = inputText, width = 50, bg = "#fff", bd = 0, justify = RIGHT)
 inputField.grid(row = 0, column = 0)
 inputField.pack(ipady = 10, pady = 3)
 
