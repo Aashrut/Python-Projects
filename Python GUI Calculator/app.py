@@ -29,7 +29,6 @@ scrollbar.pack(side = RIGHT, fill = Y)
 
 # some required variable & widget
 expression = ""
-last = ""
 history = Text(window, wrap = None, yscrollcommand = scrollbar.set)
 
 # Configure the scrollbar
@@ -39,14 +38,7 @@ scrollbar.config(command=history.yview)
 # The followind function will handle any input from user
 def butttonClicked(item):
     global expression
-    global last
-    if last == "":
-        last = str(0)
-    if item == "math.pow(":
-        expression = expression.replace(last, "") + str(item) + last + ', '
-    else:
-        last = str(item)
-        expression = expression + str(item)
+    expression = expression + str(item)
     inputText.set(expression)
 
 # The following function clears the recent entry from user
@@ -116,7 +108,7 @@ three = Button(buttonsFrame, text = "3", fg = "black", width = 10, height = 3, b
 minus = Button(buttonsFrame, text = "-", fg = "black", width = 10, height = 3, bd = 0, bg = "#dadce0", cursor = "hand2", command = lambda: butttonClicked("-")).grid(row = 3, column = 5, padx = 3, pady = 3)
 
 tangent = Button(buttonsFrame, text = "tan", fg = "black", width = 10, height = 3, bd = 0, bg = "#dadce0", cursor = "hand2", command = lambda: butttonClicked("math.tan(")).grid(row = 4, column = 0, padx = 3, pady = 3)
-xPowery = Button(buttonsFrame, text = u"x\u02B8", fg = "black", width = 10, height = 3, bd = 0, bg = "#dadce0", cursor = "hand2", command = lambda: butttonClicked("math.pow(")).grid(row = 4, column = 1, padx = 3, pady = 3)
+xPowery = Button(buttonsFrame, text = u"x\u02B8", fg = "black", width = 10, height = 3, bd = 0, bg = "#dadce0", cursor = "hand2", command = lambda: butttonClicked("**")).grid(row = 4, column = 1, padx = 3, pady = 3)
 zero = Button(buttonsFrame, text = "0", fg = "black", width = 10, height = 3, bd = 0, bg = "#f1f3f4", cursor = "hand2", command = lambda: butttonClicked(0)).grid(row = 4, column = 2, padx = 3, pady = 3)
 point = Button(buttonsFrame, text = ".", fg = "black", width = 10, height = 3, bd = 0, bg = "#f1f3f4", cursor = "hand2", command = lambda: butttonClicked(".")).grid(row = 4, column = 3, padx = 3, pady = 3)
 equals = Button(buttonsFrame, text = "=", fg = "white", width = 10, height = 3, bd = 0, bg = "#4285f4", cursor = "hand2", command = lambda: butttonEqual()).grid(row = 4, column = 4, padx = 3, pady = 3)
